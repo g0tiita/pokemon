@@ -1,4 +1,24 @@
-img{
+#box-pokemon img{
     margin: 5px;
-    background-color: aliceblue;
+    background-color: pink;
+}
+.modal-content{
+    text-align: center;
+}
+.modal-header{
+    border-bottom: none;
+}
+.name{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: pink
+}
+.height{
+    text-transform: uppercase;
+}
+.weight{
+    text-transform: uppercase;
+}
+.type{
+    text-transform: uppercase;
 }
