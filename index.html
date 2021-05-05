@@ -13,22 +13,22 @@
     <link rel="stylesheet" href="style.css">
     <script>
         $(document).ready(function(){
-			var pokemon = '';
+			let pokemon = '';
             for(let i=1; i<=151; i++){
-                pokemon ='<img id='+i+' class="mono" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png">';
+                pokemon ='<img id='+i+' class="img-poke" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png">';
                 $('#box-pokemon').append(pokemon);
             }
 
-            $(document).on("click", ".mono",function(){
+            $(document).on("click", ".img-poke",function(){
                 let codigo_pokemon = $(this).attr("id");
                 $.get("https://pokeapi.co/api/v2/pokemon/"+codigo_pokemon, function(data) {
                     $('.name').html(`${data.name}`);
-                    $('.imagenPokemon').html(`<img id=${codigo_pokemon} class="mono" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${codigo_pokemon}.png">`);
+                    $('.imagenPokemon').html(`<img id=${codigo_pokemon} class="img-poke" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${codigo_pokemon}.png">`);
                     $('.height').html(`Altura: ${data.height}`);
                     $('.weight').html(`- Peso: ${data.weight}`);
-                    var typePokemon = "";
-                    for(var i = 0; i < data.types.length; i++) {
-                        typePokemon +=  data.types[i].type.name +' ' ;
+                    let typePokemon = '';
+                    for(let i=0; i<data.types.length; i++) {
+                        typePokemon += data.types[i].type.name +' ' ;
                     }
                     $('.type').html(typePokemon);
                 }, "json");
