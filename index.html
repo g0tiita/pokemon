@@ -26,7 +26,11 @@
                     $('.imagenPokemon').html(`<img id=${codigo_pokemon} class="mono" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${codigo_pokemon}.png">`);
                     $('.height').html(`Altura: ${data.height}`);
                     $('.weight').html(`- Peso: ${data.weight}`);
-                    $('.type').html(`${data.types[0].type.name}`);
+                    var typePokemon = "";
+                    for(var i = 0; i < data.types.length; i++) {
+                        typePokemon +=  data.types[i].type.name +' ' ;
+                    }
+                    $('.type').html(typePokemon);
                 }, "json");
             });
 		});
